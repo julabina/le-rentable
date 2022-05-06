@@ -1,0 +1,72 @@
+.calculRenta {
+    width: 1250px;
+    background: #fff;
+    margin: 100px 0 50px 0;
+    border-radius: 40px;
+    padding: 35px 50px 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.185);
+    h2 {
+        font-size: 1.7em;
+        font-weight: 600;
+        text-align: center;
+    }
+    &__spent {
+        display: flex;
+        flex-direction: column;
+        &__row {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            width: 100%;
+            &__options {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 120px;
+                &__notary {
+                    display: flex;
+                    align-items: flex-end;
+                    height: 120px;
+                    margin-top: initial;
+                }
+                &__radioCont {
+                    margin-top: 20px;
+                }
+            }
+            &__checkbox {
+                display: flex;
+                label {
+                    margin-left: 3px;
+                    padding-top: 1px;
+                }
+            }
+            &__inputLong {
+                display: flex;
+                flex-direction: column;
+                margin: 0 30px;
+                width: 400px;
+                input[type=number] {
+                    @include input;
+                }
+                label {
+                    @include label;
+                }
+                &__noMargin {
+                    margin: 0 0;
+                }
+            }
+            &__inputShort {
+                display: flex;
+                flex-direction: column;
+                margin: 0 30px;
+                width: 170px;
+                input[type=number] {
+                    @include input;
+                }
+                label {
+                    @include label;
+                }
+            }
+        }
+    }
+}

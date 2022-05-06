@@ -1,0 +1,13 @@
+@mixin input {
+    height: 40px;
+    border: map-get($map: $colors, $key: lightGray) 1px solid;
+    border-radius: 7px;
+    margin-top: 5px;
+    background: lighten(map-get($colors, whiteLight), 5);
+    padding-left: 15px;
+}
+
+@mixin label {
+    font-size: 1em;
+    padding-left: 2px;
+}
