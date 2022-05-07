@@ -2,12 +2,61 @@
     height: 40px;
     border: map-get($map: $colors, $key: lightGray) 1px solid;
     border-radius: 7px;
-    margin-top: 5px;
     background: lighten(map-get($colors, whiteLight), 5);
-    padding-left: 15px;
+    text-align: right;
+    padding-right: 15px;
+}
+
+@mixin investForm {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        h3 {
+            width: 550px;
+            font-weight: 600;
+            margin: 80px 0 50px 0;
+        }
+        &__row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            &__options {
+                display: flex;
+                height: 120px;
+                &__radioCont {
+                    margin-top: 20px;
+                }
+            }
+            &__checkbox {
+                display: flex;
+                width: 400px;
+                height: 40px;
+                input {
+                    cursor: pointer;
+                }
+            }
+            &__inputs {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 30px;
+                width: 550px;
+                margin-bottom: 18px;
+                input[type=number] {
+                    @include input;
+                }
+                label {
+                    @include label;
+                    cursor: pointer;
+                }
+                &__noMargin {
+                    margin: 0 0;
+                }
+            }
+        }
 }
 
 @mixin label {
     font-size: 1em;
-    padding-left: 2px;
+    padding-top: 15px;
 }

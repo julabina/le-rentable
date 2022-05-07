@@ -82,92 +82,117 @@ main {
   display: flex;
   justify-content: center;
   background: #ebebeb;
-  min-height: 80vh;
 }
 
 .calculRenta {
   width: 1250px;
+  z-index: 10;
   background: #fff;
-  margin: 100px 0 50px 0;
+  margin: -300px 0 50px 0;
   border-radius: 40px;
   padding: 35px 50px 50px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.185);
 }
 .calculRenta h2 {
-  font-size: 1.7em;
+  font-size: 1.8em;
   font-weight: 600;
   text-align: center;
 }
-.calculRenta__spent {
+.calculRenta__spent, .calculRenta__rent {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-.calculRenta__spent__row {
+.calculRenta__spent h3, .calculRenta__rent h3 {
+  width: 550px;
+  font-weight: 600;
+  margin: 80px 0 50px 0;
+}
+.calculRenta__spent__row, .calculRenta__rent__row {
   display: flex;
-  justify-content: center;
-  margin-top: 30px;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
-.calculRenta__spent__row__options {
+.calculRenta__spent__row__options, .calculRenta__rent__row__options {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   height: 120px;
 }
-.calculRenta__spent__row__options__notary {
-  display: flex;
-  align-items: flex-end;
-  height: 120px;
-  margin-top: initial;
-}
-.calculRenta__spent__row__options__radioCont {
+.calculRenta__spent__row__options__radioCont, .calculRenta__rent__row__options__radioCont {
   margin-top: 20px;
 }
-.calculRenta__spent__row__checkbox {
+.calculRenta__spent__row__checkbox, .calculRenta__rent__row__checkbox {
   display: flex;
-}
-.calculRenta__spent__row__checkbox label {
-  margin-left: 3px;
-  padding-top: 1px;
-}
-.calculRenta__spent__row__inputLong {
-  display: flex;
-  flex-direction: column;
-  margin: 0 30px;
   width: 400px;
+  height: 40px;
 }
-.calculRenta__spent__row__inputLong input[type=number] {
+.calculRenta__spent__row__checkbox input, .calculRenta__rent__row__checkbox input {
+  cursor: pointer;
+}
+.calculRenta__spent__row__inputs, .calculRenta__rent__row__inputs {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30px;
+  width: 550px;
+  margin-bottom: 18px;
+}
+.calculRenta__spent__row__inputs input[type=number], .calculRenta__rent__row__inputs input[type=number] {
   height: 40px;
   border: #8585855b 1px solid;
   border-radius: 7px;
-  margin-top: 5px;
   background: #f8f8f8;
-  padding-left: 15px;
+  text-align: right;
+  padding-right: 15px;
 }
-.calculRenta__spent__row__inputLong label {
+.calculRenta__spent__row__inputs label, .calculRenta__rent__row__inputs label {
   font-size: 1em;
-  padding-left: 2px;
+  padding-top: 15px;
+  cursor: pointer;
 }
-.calculRenta__spent__row__inputLong__noMargin {
+.calculRenta__spent__row__inputs__noMargin, .calculRenta__rent__row__inputs__noMargin {
   margin: 0 0;
 }
-.calculRenta__spent__row__inputShort {
-  display: flex;
-  flex-direction: column;
-  margin: 0 30px;
-  width: 170px;
+.calculRenta__separator {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+  width: 550px;
+  margin-top: 40px;
 }
-.calculRenta__spent__row__inputShort input[type=number] {
-  height: 40px;
-  border: #8585855b 1px solid;
-  border-radius: 7px;
-  margin-top: 5px;
-  background: #f8f8f8;
-  padding-left: 15px;
+.calculRenta__btn {
+  padding: 8px 15px;
+  border: none;
+  background: #e99a07;
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 70px;
 }
-.calculRenta__spent__row__inputShort label {
-  font-size: 1em;
-  padding-left: 2px;
+
+.bgTop {
+  z-index: -10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 650px;
+}
+
+.calculRentaMain {
+  z-index: 10;
+  margin-top: 650px;
+}
+
+#checkboxLabel {
+  margin-left: 3px;
+  padding-top: 11px;
+}
+
+#allCheckLabel {
+  margin-left: 3px;
+  padding-top: 11px;
+  font-weight: 600;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=style.css.map */
