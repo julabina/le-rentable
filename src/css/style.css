@@ -80,7 +80,8 @@ body {
 
 main {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background: #ebebeb;
 }
 
@@ -88,10 +89,10 @@ main {
   width: 1250px;
   z-index: 10;
   background: #fff;
-  margin: -300px 0 50px 0;
   border-radius: 40px;
   padding: 35px 50px 50px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.185);
+  margin: -300px 0 20px 0;
 }
 .calculRenta h2 {
   font-size: 1.8em;
@@ -152,6 +153,9 @@ main {
 .calculRenta__spent__row__inputs__noMargin, .calculRenta__rent__row__inputs__noMargin {
   margin: 0 0;
 }
+.calculRenta__spent__row__inputs__yearly, .calculRenta__rent__row__inputs__yearly {
+  padding-right: 15px;
+}
 .calculRenta__separator {
   border-bottom: 1px solid rgba(0, 0, 0, 0.171);
   width: 550px;
@@ -193,6 +197,33 @@ main {
   padding-top: 11px;
   font-weight: 600;
   font-style: italic;
+}
+
+.resultRenta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1250px;
+  z-index: 10;
+  background: #fff;
+  border-radius: 40px;
+  padding: 35px 50px 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.185);
+  margin-bottom: 50px;
+}
+.resultRenta__resultCont {
+  width: 550px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+.resultRenta__resultCont h3 {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+.resultRenta__resultCont__result {
+  font-size: 3em;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,11 +1,6 @@
 .calculRenta {
-    width: 1250px;
-    z-index: 10;
-    background: #fff;
-    margin: -300px 0 50px 0;
-    border-radius: 40px;
-    padding: 35px 50px 50px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.185);
+    @include sectionRentImmo;
+    margin: -300px 0 20px 0;
     h2 {
         font-size: 1.8em;
         font-weight: 600;
@@ -55,4 +50,26 @@
     padding-top: 11px;
     font-weight: 600;
     font-style: italic;
+}
+
+.resultRenta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include sectionRentImmo;
+    margin-bottom: 50px;
+    &__resultCont {
+        width: 550px;
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+        h3 {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        &__result {
+            font-size: 3em;
+            font-weight: 700;
+        }
+    }
 }

@@ -52,6 +52,9 @@
                 &__noMargin {
                     margin: 0 0;
                 }
+                &__yearly {
+                    padding-right: 15px;
+                }
             }
         }
 }
@@ -59,4 +62,13 @@
 @mixin label {
     font-size: 1em;
     padding-top: 15px;
+}
+
+@mixin sectionRentImmo {
+    width: 1250px;
+    z-index: 10;
+    background: #fff;
+    border-radius: 40px;
+    padding: 35px 50px 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.185);
 }

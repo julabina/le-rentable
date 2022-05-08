@@ -3,7 +3,8 @@ import bg from "../../assets/bg.jpg"
 
 const CalculRentaImmo = () => {
 
-    const [inputs, setInputs] = useState({price: 0, size: 0,allCheck: false, worksCheck: false, worksRadioPrice: true, worksPrice: 0, worksPerCent:0, worksValue: 0, notaryCheck: false, notaryValue: 0, homeTaxesCheck: false, homeTaxesValue: 0,  condominiumCheck: false, condominiumValue: 0,  noRentCheck: false, noRentValue: 0, monthlyRent: 0});
+    const [inputs, setInputs] = useState({price: 0, size: 0, allCheck: false, worksCheck: false, worksRadioPrice: true, worksValue: 0, worksPerCent:0, worksValue: 0, notaryCheck: false, notaryValue: 0, homeTaxesCheck: false, homeTaxesValue: 0,  condominiumCheck: false, condominiumValue: 0,  noRentCheck: false, noRentValue: 0, monthlyRent: 0, creditCheck: true, creditValue: 0});
+    const [results, setResults] = useState({resultGross: 0, resultNet: 0, cashFlow: 0});
 
     const inputControl = (action, value) => {
         const allCheckBox = document.getElementById('investAllCheck');
@@ -30,7 +31,7 @@ const CalculRentaImmo = () => {
         } else if (action === "worksPrice") {
             const newObj = {
                 ...inputs,
-                worksPrice: value
+                worksValue: value
             }
             setInputs(newObj);      
         }  else if (action === "notaryCheck") {
@@ -95,6 +96,20 @@ const CalculRentaImmo = () => {
                 monthlyRent: value
             }
             setInputs(newObj);
+        } else if (action === "creditCheck") {
+            allCheckBox.checked = false;
+            const newObj = {
+                ...inputs,
+                creditCheck: !inputs.creditCheck,
+                allCheck: false
+            }
+            setInputs(newObj);         
+        } else if (action === "creditValue") {
+            const newObj = {
+                ...inputs,
+                creditValue: value
+            }
+            setInputs(newObj);
         } else if (action === "allCheck") {
             const boxes = document.querySelectorAll('.calculRenta__spent__row__checkbox__box');
             const newObj = {
@@ -111,7 +126,8 @@ const CalculRentaImmo = () => {
                     notaryCheck: true ,
                     homeTaxesCheck: true ,
                     condominiumCheck: true ,
-                    noRentCheck: true 
+                    noRentCheck: true,
+                    creditCheck: true 
                 }
                 setInputs(newObjAllCheck);
             } else {
@@ -124,16 +140,45 @@ const CalculRentaImmo = () => {
                     notaryCheck: false ,
                     homeTaxesCheck: false ,
                     condominiumCheck: false ,
-                    noRentCheck: false 
+                    noRentCheck: false, 
+                    creditCheck: false 
                 }
                 setInputs(newObjAllCheck);
             }
         }
     }
 
-    const test = (e) => {
-        e.preventDefault()
-        console.log('TEST');
+    const submitedForm = (e) => {
+        e.preventDefault();
+        calculRenta()
+    }
+
+    const calculRenta = () => {
+        let totalRent = (parseInt(inputs.monthlyRent) * 12), totalSpent = parseInt(inputs.price), charges = 0;
+        
+        inputs.worksCheck && (totalSpent += parseInt(inputs.worksValue))
+        inputs.notaryCheck && (totalSpent += parseInt(inputs.notaryValue))
+        
+        let totalGross = (100 / totalSpent) * totalRent;
+        
+        inputs.homeTaxesCheck && (charges += parseInt(inputs.homeTaxesValue))
+        inputs.condominiumCheck && (charges += parseInt(inputs.condominiumValue))
+        inputs.noRentCheck && (charges += (((parseInt(inputs.monthlyRent) * 12) / 100) * parseInt(inputs.noRentValue)))
+        
+        let rentNet = (parseInt(inputs.monthlyRent) * 12) - charges;
+        
+        let totalNet = (100 / totalSpent) * rentNet;
+
+        let totalCashflow = rentNet - (parseInt(inputs.creditValue) * 12);
+
+        const newObj = {
+            ...results,
+            resultGross: totalGross,
+            resultNet: totalNet,
+            cashFlow: totalCashflow
+        }
+        
+        setResults(newObj);
     }
 
     return (
@@ -142,42 +187,42 @@ const CalculRentaImmo = () => {
         <main className='calculRentaMain'>
             <section className='calculRenta'>
                 <h2>Calcul de la rentabilité</h2>
-                <form onSubmit={test} className="calculRenta__spent">
+                <form onSubmit={submitedForm} className="calculRenta__spent">
                     <h3>Dépenses</h3>
                     <div className="calculRenta__spent__row">
                         <div className="calculRenta__spent__row__inputs">
-                            <label htmlFor="investPrice">prix</label>
+                            <label htmlFor="investPrice">Montant du bien :</label>
                             <input onInput={(e) => inputControl("price", e.target.value)} value={inputs.price} type="number" id="investPrice" required/>
                         </div>
                         <div className="calculRenta__spent__row__inputs">
-                            <label htmlFor="investSize">m²</label>
-                            <input onInput={(e) => inputControl("size", e.target.value)} value={inputs.size} type="number" id="investSize" required />
+                            <label htmlFor="investSize">Taille de votre appartement en m² :</label>
+                            <input onInput={(e) => inputControl("size", e.target.value)} value={inputs.size} type="number" id="investSize" />
                         </div>
                     </div>
                     <div className="calculRenta__spent__row">
                         <div className="calculRenta__spent__row__inputs">
                             <div className="calculRenta__spent__row__checkbox">
                                 <input onInput={(e) => inputControl("allCheck", e.target.value)} type="checkbox" id="investAllCheck" />
-                                <label id='allCheckLabel' htmlFor="investAllCheck">all</label>
+                                <label id='allCheckLabel' htmlFor="investAllCheck">Tout cocher</label>
                             </div>
                         </div>
                         <div className="calculRenta__spent__row__inputs">
                             <div className="calculRenta__spent__row__checkbox">
                                 <input onInput={(e) => inputControl("worksCheck", e.target.value)} type="checkbox" className='calculRenta__spent__row__checkbox__box' id="investWorks" />
-                                <label id='checkboxLabel' htmlFor="investWorks">travaux?</label>
+                                <label id='checkboxLabel' htmlFor="investWorks">Prix total des travaux{inputs.worksCheck && ' :'}</label>
                             </div>
                             {
                                 inputs.worksCheck
                                 &&
                                 <>
-                                    <input onInput={(e) => inputControl("worksPrice", e.target.value)} value={inputs.worksPrice} type="number"/>
+                                    <input onInput={(e) => inputControl("worksPrice", e.target.value)} value={inputs.worksValue} type="number"/>
                                 </>
                             }
                         </div>
                         <div className="calculRenta__spent__row__inputs">
                             <div className="calculRenta__spent__row__checkbox">
                                 <input onInput={(e) => inputControl("notaryCheck", e.target.value)} type="checkbox" className='calculRenta__spent__row__checkbox__box' id="investNotaryCost" />
-                                <label id='checkboxLabel' htmlFor="investNotaryCost">notaire?</label>
+                                <label id='checkboxLabel' htmlFor="investNotaryCost">Frais de notaire{inputs.notaryCheck && ' :'}</label>
                             </div>
                              {
                                  inputs.notaryCheck
@@ -190,7 +235,7 @@ const CalculRentaImmo = () => {
                         <div className="calculRenta__spent__row__inputs">
                             <div className="calculRenta__spent__row__checkbox">
                                 <input onInput={(e) => inputControl("homeTaxesCheck", e.target.value)} type="checkbox" className='calculRenta__spent__row__checkbox__box' id="investHomeTaxes" />
-                                <label id='checkboxLabel' htmlFor="investHomeTaxes">taxe</label>
+                                <label id='checkboxLabel' htmlFor="investHomeTaxes">Taxe foncière{inputs.homeTaxesCheck && ' :'}</label>
                             </div>
                             {
                                 inputs.homeTaxesCheck
@@ -203,7 +248,7 @@ const CalculRentaImmo = () => {
                         <div className="calculRenta__spent__row__inputs">
                             <div className="calculRenta__spent__row__checkbox">
                                 <input onInput={(e) => inputControl("condominiumCheck", e.target.value)} type="checkbox" className='calculRenta__spent__row__checkbox__box' id="investCondominium" />
-                                <label id='checkboxLabel' htmlFor="investCondominium">copro</label>
+                                <label id='checkboxLabel' htmlFor="investCondominium">Bien en copropriété{inputs.condominiumCheck && ' :'}</label>
                             </div>
                             {
                                 inputs.condominiumCheck
@@ -216,13 +261,26 @@ const CalculRentaImmo = () => {
                         <div className="calculRenta__spent__row__inputs">
                             <div className="calculRenta__spent__row__checkbox">
                                 <input onInput={(e) => inputControl("noRentCheck", e.target.value)} type="checkbox" className='calculRenta__spent__row__checkbox__box' id="investNoRent" />
-                                <label id='checkboxLabel' htmlFor="investNoRent">vac loc</label>
+                                <label id='checkboxLabel' htmlFor="investNoRent">Vacances locatives en %{inputs.noRentCheck && ' :'}</label>
                             </div>
                             {
                                 inputs.noRentCheck
                                 &&
                                 <>
                                     <input onInput={(e) => inputControl("noRentValue", e.target.value)} value={inputs.noRentValue} type="number" />
+                                </>
+                            }
+                        </div>
+                        <div className="calculRenta__spent__row__inputs">
+                            <div className="calculRenta__spent__row__checkbox">
+                                <input defaultChecked onInput={(e) => inputControl("creditCheck", e.target.value)} type="checkbox" className='calculRenta__spent__row__checkbox__box' id="investCredit" />
+                                <label id='checkboxLabel' htmlFor="investCredit">Cout du crédit mensuel{inputs.creditCheck && ' :'}</label>
+                            </div>
+                            {
+                                inputs.creditCheck
+                                &&
+                                <>
+                                    <input onInput={(e) => inputControl("creditValue", e.target.value)} value={inputs.creditValue} type="number" />
                                 </>
                             }
                         </div>
@@ -234,13 +292,35 @@ const CalculRentaImmo = () => {
                         <h3>Revenus</h3>
                         <div className="calculRenta__rent__row">
                             <div className="calculRenta__rent__row__inputs">
-                                <label htmlFor="investRent">Loyer mensuel</label>
+                                <label htmlFor="investRent">Loyer mensuel :</label>
                                 <input onInput={(e) => inputControl("monthlyRent", e.target.value)} value={inputs.monthlyRent} type="number" id="investRent" required/>
+                            </div>
+                            <div className="calculRenta__rent__row__inputs">
+                                <p>Loyer annuel :</p>
+                                <p className='calculRenta__rent__row__inputs__yearly'>{inputs.monthlyRent * 12}</p>
                             </div>
                         </div>
                     </div>
                     <button className='calculRenta__btn'>Calculer</button>
                 </form>
+            </section>
+
+            <section className='resultRenta'>
+                <div className='resultRenta__resultCont'>
+                    <h3>Votre rentabilité brut :</h3>
+                    <p className='resultRenta__resultCont__result'>{(results.resultGross).toFixed(2)} %</p>                    
+                </div>
+                <div className='resultRenta__resultCont'>
+                    <h3>Votre rentabilité net :</h3>
+                    <p className='resultRenta__resultCont__result'>{(results.resultNet).toFixed(2)} %</p>                      
+                </div>
+                {
+                    inputs.creditCheck &&
+                    <div className='resultRenta__resultCont'>
+                        <h3>votre cashflow générée :</h3>
+                        <p className='resultRenta__resultCont__result'>{(results.cashFlow / 12).toFixed(2)} €</p>                      
+                    </div>
+                }
             </section>
         </main>
     </>
