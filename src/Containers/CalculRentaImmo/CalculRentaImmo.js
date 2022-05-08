@@ -184,6 +184,7 @@ const CalculRentaImmo = () => {
     return (
         <>
         <img className='bgTop' src={bg} alt="" />
+        <h1 className='titleTop'>LeRentable</h1>
         <main className='calculRentaMain'>
             <section className='calculRenta'>
                 <h2>Calcul de la rentabilité</h2>

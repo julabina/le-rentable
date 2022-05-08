@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Galada&family=Roboto:wght@400;500;700&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -74,8 +74,17 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   font-family: "Roboto", sans-serif;
+}
+
+h1, .footer__title {
+  font-family: "Galada", cursive;
 }
 
 main {
@@ -83,6 +92,39 @@ main {
   flex-direction: column;
   align-items: center;
   background: #ebebeb;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  background: #e99a07;
+  width: 100%;
+  padding: 100px 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 1250px;
+}
+.footer__title {
+  font-size: 3em;
+  text-shadow: 5px 2px 20px rgba(0, 0, 0, 0.548);
+}
+.footer__lists__infos {
+  display: flex;
+  flex-direction: column;
+}
+.footer__lists__infos h3 {
+  font-size: 1.3em;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.footer__lists__infos p {
+  margin-bottom: 3px;
+}
+.footer__lists__infos p::first-letter {
+  text-transform: uppercase;
 }
 
 .calculRenta {
@@ -180,6 +222,19 @@ main {
   object-fit: cover;
   width: 100%;
   height: 650px;
+}
+
+.titleTop {
+  z-index: -10;
+  position: fixed;
+  top: 130px;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  text-align: center;
+  font-size: 4.2em;
+  color: orange;
+  text-shadow: 10px 7px 10px black;
 }
 
 .calculRentaMain {
