@@ -13,7 +13,7 @@ const Footer = () => {
                             <h3>Informations</h3>
                         <NavLink to="/mentions-legales"><p>Mentions Légales</p></NavLink>
                         <NavLink to="/a-propos"><p>à propos</p></NavLink>
-                        <NavLink to="/politique-de-confidentialite"><p>à propos</p></NavLink>
+                        <NavLink to="/politique-de-confidentialite"><p>Politique de confidentialité</p></NavLink>
                     </div>
                 </div>
             </div>

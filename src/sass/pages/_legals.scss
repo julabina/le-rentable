@@ -1,0 +1,33 @@
+.legals {
+    background: map-get($colors, whiteLight);
+    &__title {
+        margin: 80px 0 110px;
+        font-size: 3.2em;
+        color: orange;
+        text-shadow: 2px 2px 12px black
+    }
+    &__section {
+        @include sectionRentImmo;
+        margin-bottom: 50px;
+        h2 {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.7em;
+            margin: 35px 0 90px;
+            text-align: center;
+        }
+        h3 {
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 1.25em;
+            margin: 40px 0 10px;
+        }
+        p {
+            line-height: 1.4;
+            letter-spacing: 0.7px;
+        }
+        &__p {
+            margin-top: 12px;
+        }
+    }
+}
