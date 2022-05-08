@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import bg from "../../assets/bg.jpg"
 
 const CalculRentaImmo = () => {
 
     const [inputs, setInputs] = useState({price: 0, size: 0, allCheck: false, worksCheck: false, worksRadioPrice: true, worksValue: 0, worksPerCent:0, worksValue: 0, notaryCheck: false, notaryValue: 0, homeTaxesCheck: false, homeTaxesValue: 0,  condominiumCheck: false, condominiumValue: 0,  noRentCheck: false, noRentValue: 0, monthlyRent: 0, creditCheck: true, creditValue: 0});
     const [results, setResults] = useState({resultGross: 0, resultNet: 0, cashFlow: 0});
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
 
     const inputControl = (action, value) => {
         const allCheckBox = document.getElementById('investAllCheck');

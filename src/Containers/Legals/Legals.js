@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Legals = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
+
     return (
         <main className='legals'>
-            <h1 className="legals__title">LeRentable</h1>
+            <NavLink to="/">
+                <h1 className="legals__title">LeRentable</h1>
+            </NavLink>
             <section className="legals__section">
                 <h2>Mentions Légales</h2>
                 <p>Les présentes conditions générales fixent les modalités d'utilisation du service web http://le-rentable.fr</p>
