@@ -375,6 +375,10 @@ footer {
   flex-direction: column;
   align-items: center;
 }
+.contact__section__inputCont {
+  display: flex;
+  flex-direction: column;
+}
 .contact__section form {
   display: flex;
   flex-direction: column;
@@ -395,7 +399,7 @@ footer {
   justify-content: space-between;
 }
 .contact__section__infosForm__name, .contact__section__infosForm__mail {
-  width: 435px;
+  width: 430px;
 }
 .contact__section__btnCont {
   display: flex;
@@ -415,6 +419,20 @@ footer {
 .contact__section__btnCont__btn:hover {
   opacity: 0.8;
   transition: opacity 200ms ease-in-out;
+}
+.contact__section label {
+  margin-bottom: 4px;
+}
+.contact__section__errorCont {
+  width: 900px;
+}
+.contact__section__errorCont p {
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: #d30000;
+}
+.contact__section__errorCont p:last-child {
+  margin-bottom: 40px;
 }
 
 .notFound {

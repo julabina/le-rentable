@@ -4,6 +4,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        &__inputCont {
+            display: flex;
+            flex-direction: column;
+        }
         form {
             display: flex;
             flex-direction: column;
@@ -23,7 +27,7 @@
             display: flex;
             justify-content: space-between;
             &__name, &__mail {
-                width: 435px;
+                width: 430px;
             }
         }
         &__btnCont {
@@ -31,6 +35,20 @@
             justify-content: center;
             &__btn {
                 @include btn;
+            }
+        }
+        label {
+            margin-bottom: 4px;
+        }
+        &__errorCont {
+            width: 900px;
+            p {
+                font-size: 0.85em;
+                line-height: 1.5;
+                color: rgb(211, 0, 0);
+                &:last-child {
+                    margin-bottom: 40px;
+                }
             }
         }
     }
