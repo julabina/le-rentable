@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Cgu = () => {
 
@@ -8,7 +9,9 @@ const Cgu = () => {
 
     return (
         <main className='cgu'>
-            <h1 className='cgu__title'>LeRentable</h1>
+            <NavLink to="/">
+                <h1 className='cgu__title'>LeRentable</h1>
+            </NavLink>
             <section className='cgu__section'>
                 <h2>Conditions générales d'utilisation</h2>
                 <p>Les présentes conditions générales d'utilisation (dites "<span>CGU</span>" ont pour objet l'encadrement juridique des modalités de mise à disposition du site et de définir les conditions d'accès et d'utilisation des services par "<span>l'Utilisateur</span>".</p>

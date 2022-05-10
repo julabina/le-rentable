@@ -11,7 +11,6 @@ const Footer = () => {
                 <div className="footer__lists">
                     <div className="footer__lists__infos">
                             <h3>Informations</h3>
-                        <NavLink to="/a-propos"><p>à propos</p></NavLink>
                         <NavLink to="/contact"><p>Contact</p></NavLink>
                         <NavLink to="/cgu"><p>Conditions Générales d'Utilisation</p></NavLink>
                         <NavLink to="/politique-de-confidentialite"><p>Politique de confidentialité</p></NavLink>

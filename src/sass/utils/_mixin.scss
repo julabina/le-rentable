@@ -83,7 +83,7 @@
     }
     &__section {
         @include sectionRentImmo;
-        margin-bottom: 100px;
+        margin-bottom: 80px;
         padding-bottom: 70px;
         h2 {
             font-weight: 700;
@@ -105,5 +105,21 @@
         &__marginTop {
             margin-top: 12px;
         }
+    }
+}
+
+@mixin btn {
+    padding: 8px 15px;
+    border: none;
+    background: map-get($map: $colors, $key: orangeLight);
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 70px;
+    transition: opacity 200ms ease-in-out;
+    &:hover {
+        opacity: 0.8;
+        transition: opacity 200ms ease-in-out;
     }
 }
