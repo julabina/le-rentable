@@ -41,15 +41,7 @@
             margin-bottom: 4px;
         }
         &__errorCont {
-            width: 900px;
-            p {
-                font-size: 0.85em;
-                line-height: 1.5;
-                color: rgb(211, 0, 0);
-                &:last-child {
-                    margin-bottom: 40px;
-                }
-            }
+            @include error;
         }
         &__sendCont {
             width: 900px;

@@ -154,6 +154,26 @@ const CalculRentaImmo = () => {
 
     const submitedForm = (e) => {
         e.preventDefault();
+        const errorCont = document.querySelector('.calculRenta__errorCont');
+        let error = ``;
+
+        if (parseInt(inputs.price) === 0) {
+            error += `<p>- Le montant du bien ne peut pas être 0.</p>`
+        } 
+        if (parseInt(inputs.monthlyRent) === 0) {
+            error += `<p>- Le loyer mensuel ne peut pas être 0.</p>`
+        }
+        if (inputs.noRentCheck) {
+            if (parseInt(inputs.noRentValue) === 0 || parseInt(inputs.noRentValue) > 30 || inputs.noRentValue === '') {
+                error += `<p>- Les vacances locatives doivent etre comprises entre 1% et 30%.</p>`
+            }
+        }
+
+        if (error !== '') {
+            window.scrollTo(0, 0);
+            return errorCont.innerHTML = error;
+        }
+
         calculRenta()
     }
 
@@ -192,6 +212,7 @@ const CalculRentaImmo = () => {
         <main className='calculRentaMain'>
             <section className='calculRenta'>
                 <h2>Calcul de la rentabilité</h2>
+                <div className="calculRenta__errorCont"></div>
                 <form onSubmit={submitedForm} className="calculRenta__spent">
                     <h3>Dépenses</h3>
                     <div className="calculRenta__spent__row">
@@ -310,7 +331,7 @@ const CalculRentaImmo = () => {
                 </form>
             </section>
 
-            <section className='resultRenta'>
+            <section className='resultRenta' id='resultRenta'>
                 <div className='resultRenta__resultCont'>
                     <h3>Votre rentabilité brut :</h3>
                     <p className='resultRenta__resultCont__result'>{(results.resultGross).toFixed(2)} %</p>                    

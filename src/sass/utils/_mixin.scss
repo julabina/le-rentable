@@ -29,9 +29,9 @@
                 }
             }
             &__checkbox {
-                display: flex;
                 width: 400px;
                 height: 40px;
+                padding-top: 9px;
                 input {
                     cursor: pointer;
                 }
@@ -121,5 +121,17 @@
     &:hover {
         opacity: 0.8;
         transition: opacity 200ms ease-in-out;
+    }
+}
+
+@mixin error {
+    width: 900px;
+    p {
+        font-size: 0.85em;
+        line-height: 1.5;
+        color: rgb(211, 0, 0);
+        &:last-child {
+            margin-bottom: 40px;
+        }
     }
 }

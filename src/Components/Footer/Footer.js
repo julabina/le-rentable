@@ -13,7 +13,6 @@ const Footer = () => {
                             <h3>Informations</h3>
                         <NavLink to="/contact"><p>Contact</p></NavLink>
                         <NavLink to="/cgu"><p>Conditions Générales d'Utilisation</p></NavLink>
-                        <NavLink to="/politique-de-confidentialite"><p>Politique de confidentialité</p></NavLink>
                     </div>
                 </div>
             </div>
