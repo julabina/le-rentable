@@ -251,6 +251,9 @@ footer {
     margin: 50px 0 30px;
     font-size: 1.2em;
   }
+  .calculRenta__spent__row__checkbox, .calculRenta__rent__row__checkbox {
+    width: 290px;
+  }
   .calculRenta__spent__row__inputs, .calculRenta__rent__row__inputs {
     width: 290px;
     flex-direction: column;
@@ -319,7 +322,7 @@ footer {
 }
 @media screen and (max-width: 720px) {
   .calculRenta {
-    margin: -100px;
+    margin-top: -100px;
   }
   .calculRenta__separator {
     width: 290px;
@@ -430,7 +433,7 @@ footer {
 }
 @media screen and (max-width: 720px) {
   .resultRenta {
-    margin-top: 140px;
+    margin-top: 10px;
   }
   .resultRenta__resultCont {
     width: 290px;

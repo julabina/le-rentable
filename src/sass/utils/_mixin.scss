@@ -64,6 +64,9 @@
             font-size: 1.2em;
         }
         &__row {
+            &__checkbox {
+                width: 290px;
+            }
             &__inputs {
                 width: 290px;
                 flex-direction: column;

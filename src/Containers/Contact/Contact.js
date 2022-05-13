@@ -91,7 +91,7 @@ const Contact = () => {
             topic: inputs.topic,
             message: inputs.message
         }
-        /* emailjs.send('service_c00b0wn', 'template_pi0j5kh', objToSend, 'lVfp0cuRFWaBf6rEZ')
+        emailjs.send('service_c00b0wn', 'template_pi0j5kh', objToSend, 'lVfp0cuRFWaBf6rEZ')
         .then(res => res.text === 'OK' && (succesDiv.innerHTML = `<p>Message envoyé !</p>`))
             .catch(error =>  error = `Une erreur est survenue: ${error}.`)
 
@@ -101,7 +101,7 @@ const Contact = () => {
             topic: "",
             message: ""
         }
-        setInputs(newObj); */
+        setInputs(newObj);
     }
 
     return (
