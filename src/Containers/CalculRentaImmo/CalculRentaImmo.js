@@ -207,7 +207,7 @@ const CalculRentaImmo = () => {
 
     return (
         <>
-        <img className='bgTop' src={bg} alt="" />
+        <img className='bgTop' src={bg} alt="vue aérienne d'une ville traversée par un fleuve" />
         <h1 className='titleTop'>LeRentable</h1>
         <main className='calculRentaMain'>
             <section className='calculRenta'>
