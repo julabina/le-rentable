@@ -42,7 +42,7 @@ const Contact = () => {
         e.preventDefault();
         const errorCont = document.querySelector('.contact__section__errorCont');
         let error = ``;
- 
+ /* /^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i */
         // name
         if (inputs.name === "") {
             error += `<p>- Le nom ne doit pas être vide.</p>`;
@@ -52,7 +52,7 @@ const Contact = () => {
             error += `<p>- Le nom ne doit pas comporter de caractères spéciaux.</p>`;
         }
         // mail
-        if (!inputs.mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
+        if (!inputs.mail.match(/^[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z{|}~])*@[a-zA-Z](-?[a-zA-Z0-9])*(\.[a-zA-Z](-?[a-zA-Z0-9])*)+$/i)) {
             error += `<p>- L'email n' est pas valide'.</p>`;
         }
         // topic
@@ -91,7 +91,7 @@ const Contact = () => {
             topic: inputs.topic,
             message: inputs.message
         }
-        emailjs.send('service_c00b0wn', 'template_pi0j5kh', objToSend, 'lVfp0cuRFWaBf6rEZ')
+        /* emailjs.send('service_c00b0wn', 'template_pi0j5kh', objToSend, 'lVfp0cuRFWaBf6rEZ')
         .then(res => res.text === 'OK' && (succesDiv.innerHTML = `<p>Message envoyé !</p>`))
             .catch(error =>  error = `Une erreur est survenue: ${error}.`)
 
@@ -101,7 +101,7 @@ const Contact = () => {
             topic: "",
             message: ""
         }
-        setInputs(newObj);
+        setInputs(newObj); */
     }
 
     return (
