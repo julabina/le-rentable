@@ -36,4 +36,37 @@ footer {
             }
         }
     }
+    @include forDesktop {
+        width: 700px;
+        &__lists {
+            &__infos {
+                p {
+                    line-height: 1.8;
+                }
+            }
+        }
+    }
+    @include forTablet {
+        width: 290px;
+        flex-direction: column;
+        align-items: center;
+        &__title {
+            margin-bottom: 50px;
+        }
+        &__lists {
+            text-align: center;
+            &__infos {
+                h3 {
+                    margin-bottom: 50px;
+                    visibility: hidden;
+                }
+                p {
+                    font-size: 1.5em;
+                    color: rgb(8, 8, 158);
+                    margin-bottom: 50px;
+                    line-height: 1.1;
+                }
+            }
+        }
+    }
 }

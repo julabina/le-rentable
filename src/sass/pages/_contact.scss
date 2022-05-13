@@ -54,4 +54,27 @@
             }
         }
     }
+    @include forDesktop {
+        &__section {
+            form {
+                width: 600px;
+                textarea {
+                    resize: none;
+                }
+            }
+            &__infosForm {
+                flex-direction: column;
+                &__name, &__mail {
+                    width: auto;
+                }
+            }
+        }
+    }
+    @include forTablet {
+        &__section {
+            form {
+                width: 290px;
+            }
+        }
+    }
 }

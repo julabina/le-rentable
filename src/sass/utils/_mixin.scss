@@ -9,54 +9,67 @@
 
 @mixin investForm {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+        width: 550px;
+        font-weight: 600;
+        margin: 80px 0 50px 0;
+    }
+    &__row {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        h3 {
+        width: 100%;
+        &__options {
+            display: flex;
+            height: 120px;
+            &__radioCont {
+                margin-top: 20px;
+            }
+        }
+        &__checkbox {
+            width: 400px;
+            height: 40px;
+            padding-top: 9px;
+            input {
+                cursor: pointer;
+            }
+        }
+        &__inputs {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 30px;
             width: 550px;
-            font-weight: 600;
-            margin: 80px 0 50px 0;
+            margin-bottom: 18px;
+            input[type=number] {
+                @include input;
+            }
+            label {
+                @include label;
+                cursor: pointer;
+            }
+            &__noMargin {
+                margin: 0 0;
+            }
+            &__yearly {
+                padding-right: 15px;
+            }
+        }
+    }
+    @include forTablet {
+        h3 {
+            width: 290px;
+            margin: 50px 0 30px;
+            font-size: 1.2em;
         }
         &__row {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            &__options {
-                display: flex;
-                height: 120px;
-                &__radioCont {
-                    margin-top: 20px;
-                }
-            }
-            &__checkbox {
-                width: 400px;
-                height: 40px;
-                padding-top: 9px;
-                input {
-                    cursor: pointer;
-                }
-            }
             &__inputs {
-                display: flex;
-                justify-content: space-between;
-                margin: 0 30px;
-                width: 550px;
-                margin-bottom: 18px;
-                input[type=number] {
-                    @include input;
-                }
-                label {
-                    @include label;
-                    cursor: pointer;
-                }
-                &__noMargin {
-                    margin: 0 0;
-                }
-                &__yearly {
-                    padding-right: 15px;
-                }
+                width: 290px;
+                flex-direction: column;
             }
         }
+    }
 }
 
 @mixin label {
@@ -71,6 +84,13 @@
     border-radius: 40px;
     padding: 35px 50px 50px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.185);
+    @include forDesktop {
+        width: 700px;
+    }
+    @include forTablet {
+        width: 320px;
+        padding: 25px 20px 25px;
+    }
 }
 
 @mixin legalTexts {
@@ -106,6 +126,11 @@
             margin-top: 12px;
         }
     }
+    @include forTablet {
+        &__title {
+            margin: 50px 0 60px;
+        }
+    }
 }
 
 @mixin btn {
@@ -122,6 +147,9 @@
         opacity: 0.8;
         transition: opacity 200ms ease-in-out;
     }
+    @include forTablet {
+        padding: 20px 18px;
+    }
 }
 
 @mixin error {
@@ -133,5 +161,24 @@
         &:last-child {
             margin-bottom: 40px;
         }
+    }
+    @include forDesktop {
+        width: 600px;
+    }
+    @include forTablet {
+        width: 290px;
+        font-size: 1em;
+    }
+}
+
+@mixin forDesktop {
+    @media screen and (max-width: map-get($queries, desktop)) {
+        @content;
+    }
+}
+
+@mixin forTablet {
+    @media screen and (max-width: map-get($queries, tablet)) {
+        @content;
     }
 }
