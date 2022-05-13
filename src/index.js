@@ -6,9 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import './css/style.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+
+  root.render(
   <BrowserRouter>
-      <App />
+    <App />
   </BrowserRouter>
 );
 
