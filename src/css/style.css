@@ -434,6 +434,16 @@ footer {
 .contact__section__errorCont p:last-child {
   margin-bottom: 40px;
 }
+.contact__section__sendCont {
+  width: 900px;
+}
+.contact__section__sendCont p {
+  text-align: center;
+  font-weight: 500;
+  color: #025002;
+  margin-bottom: 90px;
+  font-size: 1.7em;
+}
 
 .notFound {
   background: #ebebeb;

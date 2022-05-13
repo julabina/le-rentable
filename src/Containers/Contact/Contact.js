@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     
@@ -10,7 +11,6 @@ const Contact = () => {
     },[])
 
     const controlInput = (action, value) => {
-        console.log(action, value);
         if (action === "name") {
             const newObj = {
                 ...inputs,
@@ -53,7 +53,7 @@ const Contact = () => {
         }
         // mail
         if (!inputs.mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
-            error += `<p>- L'email n' est pas valid'.</p>`;
+            error += `<p>- L'email n' est pas valide'.</p>`;
         }
         // topic
         if (inputs.topic === "") {
@@ -74,6 +74,34 @@ const Contact = () => {
 
         errorCont.innerHTML = error;
         window.scrollTo(0, 0);
+
+        if (error === '') {
+            sendMsg();
+        }
+
+    }
+
+    const sendMsg = () => {
+        const succesDiv = document.querySelector('.contact__section__sendCont');
+        let confirmMsg = '';
+
+        const objToSend = {
+            name: inputs.name,
+            mail: inputs.mail,
+            topic: inputs.topic,
+            message: inputs.message
+        }
+        emailjs.send('service_c00b0wn', 'template_pi0j5kh', objToSend, 'lVfp0cuRFWaBf6rEZ')
+        .then(res => res.text === 'OK' && (succesDiv.innerHTML = `<p>Message envoyé !</p>`))
+            .catch(error =>  error = `Une erreur est survenue: ${error}.`)
+
+        const newObj = {
+            name: "",
+            mail: "",
+            topic: "",
+            message: ""
+        }
+        setInputs(newObj);
     }
 
     return (
@@ -84,6 +112,7 @@ const Contact = () => {
             <section className="contact__section">
                 <h2>Contactez nous</h2>
                 <div className="contact__section__errorCont"></div>
+                <div className="contact__section__sendCont"></div>
                 <form onSubmit={verifyMsg}>
                     <div className="contact__section__infosForm">
                         <div className="contact__section__inputCont">

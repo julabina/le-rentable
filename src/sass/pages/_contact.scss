@@ -51,5 +51,15 @@
                 }
             }
         }
+        &__sendCont {
+            width: 900px;
+            p {
+                text-align: center;
+                font-weight: 500;
+                color: rgb(2, 80, 2);
+                margin-bottom: 90px;
+                font-size: 1.7em;
+            }
+        }
     }
 }
