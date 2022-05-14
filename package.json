@@ -1,7 +1,7 @@
 {
   "name": "le-rentable",
   "homepage": "http://le-rentable.fr",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
