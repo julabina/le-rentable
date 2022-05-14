@@ -9,7 +9,9 @@ const NotFound = () => {
 
     return (
         <main className='notFound'>
-            <h1 className='notFound__title'>LeRentable</h1>
+            <NavLink to="/">
+                <h1 className='notFound__title'>LeRentable</h1>
+            </NavLink>
             <section className='notFound__section'>
                 <h2 className="notFound__section__title">404 Not found</h2>
                 <div className="notFound__section__btnCont">

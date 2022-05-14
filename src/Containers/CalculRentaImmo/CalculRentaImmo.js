@@ -165,7 +165,7 @@ const CalculRentaImmo = () => {
         }
         if (inputs.noRentCheck) {
             if (parseInt(inputs.noRentValue) === 0 || parseInt(inputs.noRentValue) > 30 || inputs.noRentValue === '') {
-                error += `<p>- Les vacances locatives doivent etre comprises entre 1% et 30%.</p>`
+                error += `<p>- Les vacances locatives doivent être comprises entre 1% et 30%.</p>`
             }
         }
 
@@ -333,17 +333,17 @@ const CalculRentaImmo = () => {
 
             <section className='resultRenta' id='resultRenta'>
                 <div className='resultRenta__resultCont'>
-                    <h3>Votre rentabilité brut :</h3>
+                    <h3>Votre rentabilité brute :</h3>
                     <p className='resultRenta__resultCont__result'>{(results.resultGross).toFixed(2)} %</p>                    
                 </div>
                 <div className='resultRenta__resultCont'>
-                    <h3>Votre rentabilité net :</h3>
+                    <h3>Votre rentabilité nette :</h3>
                     <p className='resultRenta__resultCont__result'>{(results.resultNet).toFixed(2)} %</p>                      
                 </div>
                 {
                     inputs.creditCheck &&
                     <div className='resultRenta__resultCont'>
-                        <h3>votre cashflow générée :</h3>
+                        <h3>votre cash-flow généré :</h3>
                         <p className='resultRenta__resultCont__result'>{(results.cashFlow / 12).toFixed(2)} €</p>                      
                     </div>
                 }

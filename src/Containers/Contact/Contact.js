@@ -42,7 +42,6 @@ const Contact = () => {
         e.preventDefault();
         const errorCont = document.querySelector('.contact__section__errorCont');
         let error = ``;
- /* /^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i */
         // name
         if (inputs.name === "") {
             error += `<p>- Le nom ne doit pas être vide.</p>`;
@@ -53,7 +52,7 @@ const Contact = () => {
         }
         // mail
         if (!inputs.mail.match(/^[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z{|}~])*@[a-zA-Z](-?[a-zA-Z0-9])*(\.[a-zA-Z](-?[a-zA-Z0-9])*)+$/i)) {
-            error += `<p>- L'email n' est pas valide'.</p>`;
+            error += `<p>- L'email n'est pas valide.</p>`;
         }
         // topic
         if (inputs.topic === "") {
