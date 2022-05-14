@@ -59,7 +59,7 @@ const Contact = () => {
             error += `<p>- Le sujet ne doit pas être vide.</p>`;
         } else if (inputs.topic.length < 2 || inputs.topic.length > 100) {
             error += `<p>- La taille du sujet doit être comprise entre 2 et 100 caractères.</p>`;
-        } else if (!inputs.topic.match(/^[a-zA-Zé èà]*$/)) {
+        } else if (!inputs.topic.match(/^[A-Za-z0-9 .'?!,@€éèà#-_]*$/)) {
             error += `<p>- Le sujet ne doit pas comporter de caractères spéciaux.</p>`;
         }
         // message
@@ -67,7 +67,7 @@ const Contact = () => {
             error += `<p>- Le message ne doit pas être vide.</p>`;
         } else if (inputs.message.length < 10 || inputs.message.length > 500) {
             error += `<p>- La taille du message doit être comprise entre 10 et 500 caractères.</p>`;
-        } else if (!inputs.message.match(/^[a-zA-Zé èà]*$/)) {
+        } else if (!inputs.message.match(/^[A-Za-z0-9 .'?!,@€éèà#-_]*$/)) {
             error += `<p>- Le message ne doit pas comporter de caractères spéciaux.</p>`;
         }
 
