@@ -97,6 +97,7 @@ main {
 footer {
   display: flex;
   justify-content: center;
+  position: relative;
   background: #e99a07;
   width: 100%;
   padding: 100px 0;
@@ -166,6 +167,15 @@ footer {
     margin-bottom: 30px;
     line-height: 1.1;
   }
+}
+.footer__copyright {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+}
+.footer__copyright p {
+  text-align: center;
+  font-size: 0.92em;
 }
 
 .calculRenta {

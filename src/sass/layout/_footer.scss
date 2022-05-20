@@ -1,6 +1,7 @@
 footer {
     display: flex;
     justify-content: center;
+    position: relative;
     background: map-get($colors, orangeLight);
     width: 100%;
     padding: 100px 0;
@@ -70,6 +71,15 @@ footer {
                     line-height: 1.1;
                 }
             }
+        }
+    }
+    &__copyright {
+        position:absolute;
+        width: 100%;
+        bottom: 10px;
+        p {
+            text-align: center;
+            font-size: 0.92em;
         }
     }
 }

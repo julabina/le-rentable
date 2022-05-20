@@ -16,6 +16,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+                <div className="footer__copyright"><p>Copyright 2022 © Le Rentable | Tous droits réservés</p></div>
         </footer>
     );
 };
