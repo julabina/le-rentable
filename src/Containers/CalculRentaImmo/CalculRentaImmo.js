@@ -155,6 +155,7 @@ const CalculRentaImmo = () => {
     const submitedForm = (e) => {
         e.preventDefault();
         const errorCont = document.querySelector('.calculRenta__errorCont');
+        errorCont.innerHTML = '';
         let error = ``;
 
         if (parseInt(inputs.price) === 0) {
